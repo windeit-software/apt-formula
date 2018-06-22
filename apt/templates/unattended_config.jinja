@@ -9,6 +9,8 @@
 {% set mail = unattended.get('mail', 'root') -%}
 {% set mail_only_on_error = unattended.get('mail_only_on_error', 'false') -%}
 {% set remove_unused_dependencies = unattended.get('remove_unused_dependencies', 'true') -%}
+{% set remove_new_unused_dependencies = unattended.get('remove_new_unused_dependencies', 'true') -%}
+{% set remove_unused_kernel_packages = unattended.get('remove_unused_kernel_packages', 'true') -%}
 {% set automatic_reboot = unattended.get('automatic_reboot', 'false') -%}
 {% set automatic_reboot_time = unattended.get('automatic_reboot_time', 'now') -%}
 {% set dl_limit = unattended.get('dl_limit', '0') -%}
@@ -33,6 +35,8 @@ Unattended-Upgrade::InstallOnShutdown "{{ install_on_shutdown }}";
 Unattended-Upgrade::Mail "{{ mail }}";
 Unattended-Upgrade::MailOnlyOnError "{{ mail_only_on_error }}";
 Unattended-Upgrade::Remove-Unused-Dependencies "{{ remove_unused_dependencies }}";
+Unattended-Upgrade::Remove-New-Unused-Dependencies "{{ remove_new_unused_dependencies }}";
+Unattended-Upgrade::Remove-Unused-Kernel-Packages "{{ remove_unused_kernel_packages }}";
 Unattended-Upgrade::Automatic-Reboot "{{ automatic_reboot }}";
 Unattended-Upgrade::Automatic-Reboot-Time "{{ automatic_reboot_time }}";
 Acquire::http::Dl-Limit "{{ dl_limit }}";
